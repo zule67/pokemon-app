@@ -1,23 +1,23 @@
 export interface Pokemon {
-  id: number; // Identificador único
-  name: string; // Nombre del Pokémon
+  id: number;
+  name: string;
   sprites: {
-    front_default: string; // URL de la imagen principal
-    [key: string]: any; // Posibles otras propiedades de sprites
+    front_default: string;
+    [key: string]: any;
   };
   types: Array<{
     slot: number;
     type: {
-      name: string; // Nombre del tipo (e.g., fire, water)
+      name: string;
       url: string;
     }
   }>;
   abilities: Array<{
     ability: {
-      name: string; // Nombre de la habilidad
+      name: string;
       url: string;
     };
-    is_hidden: boolean; // Indica si la habilidad está oculta
+    is_hidden: boolean;
     slot: number;
   }>;
 }

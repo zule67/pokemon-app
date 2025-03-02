@@ -12,11 +12,11 @@ declare const require: {
   };
 };
 
-// Inicializa el entorno de testing
+// Init testing environment
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting()
 );
-// Encuentra todos los tests.
+// Find all the test
 const context = require.context('./', true, /\.spec\.ts$/);
 context.keys().map(context);
