@@ -1,1 +1,24 @@
-<p>pokemon-list works!</p>
+<mat-toolbar color="primary">
+  <span>Pokemon List (1st Generation) </span>
+</mat-toolbar>
+
+<div class="container">
+  <!-- Campo de búsqueda -->
+  <mat-form-field appearance="fill" class="search-field">
+    <mat-label>Look for Pokemon</mat-label>
+    <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Name of the Pokémon">
+  </mat-form-field>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Cards for every Pokémon -->
+  <div class="pokemon-list">
+    <mat-card *ngFor="let pokemon of filteredPokemons" class="pokemon-card" (click)="viewDetails(pokemon.name)">
+      <img mat-card-image [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+      <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
+    </mat-card>
+  </div>
+</div>

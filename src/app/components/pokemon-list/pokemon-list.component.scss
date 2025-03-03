@@ -1,0 +1,29 @@
+.container {
+  padding: 20px;
+}
+
+.search-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pokemon-card {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+}
