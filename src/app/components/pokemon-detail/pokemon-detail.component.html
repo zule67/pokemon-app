@@ -1,1 +1,31 @@
-<p>pokemon-detail works!</p>
+<mat-toolbar color="primary">
+  <button mat-button (click)="goBack()">Volver</button>
+  <span>Detail of {{ pokemon?.name | titlecase }}</span>
+</mat-toolbar>
+
+<!-- Card for Pokemon detail -->
+<div class="container" *ngIf="pokemon; else errorTemplate">
+  <mat-card class="pokemon-detail-card">
+    <img mat-card-image [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+    <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
+    <mat-card-content>
+      <p><strong>Types:</strong>
+        <span *ngFor="let type of pokemon.types; let i = index">
+          {{ type.type.name }}<span *ngIf="i < pokemon.types.length - 1">, </span>
+        </span>
+      </p>
+      <p><strong>Skills:</strong>
+        <span *ngFor="let ability of pokemon.abilities; let i = index">
+          {{ ability.ability.name }}<span *ngIf="i < pokemon.abilities.length - 1">, </span>
+        </span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Template for error message -->
+<ng-template #errorTemplate>
+  <div class="error-message">
+    {{ errorMessage || 'Could not load Pokémon detail.' }}
+  </div>
+</ng-template>
