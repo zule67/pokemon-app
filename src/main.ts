@@ -13,6 +13,13 @@ import { PokemonDetailComponent } from './app/components/pokemon-detail/pokemon-
 const routes: Routes = [
   { path: '', component: PokemonListComponent },
   { path: 'pokemon/:name', component: PokemonDetailComponent },
+  /**
+   * {
+        path: 'pokemon/:name',
+        loadComponent: () => import('./app/components/pokemon-detail/pokemon-detail.component')
+                                .then(m => m.PokemonDetailComponent)
+      }
+   */
   { path: '**', redirectTo: '' }
 ];
 
